@@ -2,7 +2,7 @@
   "name": "emergallery",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://producement.github.io/emergallery",
+  "homepage": "https://emergallery.producement.com",
   "dependencies": {
     "@types/jest": "^23.3.10",
     "@types/node": "^10.12.12",
