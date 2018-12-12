@@ -1,14 +1,14 @@
 {
-  "main.css": "/emergallery/static/css/main.39b4cac2.chunk.css",
-  "main.js": "/emergallery/static/js/main.5e80d3c6.chunk.js",
-  "main.js.map": "/emergallery/static/js/main.5e80d3c6.chunk.js.map",
-  "static/js/1.82dafdb5.chunk.js": "/emergallery/static/js/1.82dafdb5.chunk.js",
-  "static/js/1.82dafdb5.chunk.js.map": "/emergallery/static/js/1.82dafdb5.chunk.js.map",
-  "runtime~main.js": "/emergallery/static/js/runtime~main.d9b609f0.js",
-  "runtime~main.js.map": "/emergallery/static/js/runtime~main.d9b609f0.js.map",
-  "static/media/logo.svg": "/emergallery/static/media/logo.5d5d9eef.svg",
-  "static/css/main.39b4cac2.chunk.css.map": "/emergallery/static/css/main.39b4cac2.chunk.css.map",
-  "index.html": "/emergallery/index.html",
-  "precache-manifest.016757744345056df362aae544618703.js": "/emergallery/precache-manifest.016757744345056df362aae544618703.js",
-  "service-worker.js": "/emergallery/service-worker.js"
+  "main.css": "/static/css/main.39b4cac2.chunk.css",
+  "main.js": "/static/js/main.44d64707.chunk.js",
+  "main.js.map": "/static/js/main.44d64707.chunk.js.map",
+  "static/js/1.82dafdb5.chunk.js": "/static/js/1.82dafdb5.chunk.js",
+  "static/js/1.82dafdb5.chunk.js.map": "/static/js/1.82dafdb5.chunk.js.map",
+  "runtime~main.js": "/static/js/runtime~main.229c360f.js",
+  "runtime~main.js.map": "/static/js/runtime~main.229c360f.js.map",
+  "static/media/logo.svg": "/static/media/logo.5d5d9eef.svg",
+  "static/css/main.39b4cac2.chunk.css.map": "/static/css/main.39b4cac2.chunk.css.map",
+  "index.html": "/index.html",
+  "precache-manifest.16d30fc7f1d3e72b85cb6c1a028a3d2e.js": "/precache-manifest.16d30fc7f1d3e72b85cb6c1a028a3d2e.js",
+  "service-worker.js": "/service-worker.js"
 }
