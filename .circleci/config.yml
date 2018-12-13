@@ -49,13 +49,13 @@ workflows:
   version: 2
   emergallery:
     jobs:
-      - build
-          filters:
-            branches:
-              ignore:
-                - gh-pages
-      - deploy
-          filters:
-            branches:
-              ignore:
-                - gh-pages
+      - build:
+        filters:
+          branches:
+            ignore:
+              - gh-pages
+      - deploy:
+        filters:
+          branches:
+            ignore:
+              - gh-pages
