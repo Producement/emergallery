@@ -26,6 +26,15 @@ class ReceivingPeerComponent extends React.Component<any, any> {
       }
     });
 
+    peer2.on('close', () => {
+      console.log('Closing peer2');
+      this.props.firebase
+        .firestore()
+        .collection('peers')
+        .doc('peer1')
+        .set({ data: null });
+    });
+
     this.props.firebase
       .firestore()
       .collection('peers')
@@ -64,6 +73,15 @@ class InitiatorPeerComponent extends React.Component<any, any> {
         .collection('peers')
         .doc('peer2')
         .set({ data });
+    });
+
+    peer1.on('close', () => {
+      console.log('Closing peer1');
+      this.props.firebase
+        .firestore()
+        .collection('peers')
+        .doc('peer2')
+        .set({ data: null });
     });
 
     this.props.firebase
