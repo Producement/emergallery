@@ -2,7 +2,7 @@ import React from 'react';
 import uuid from 'uuid/v4';
 import { withFirebase } from '../Firebase';
 import { InitiatorPeer } from '../Video';
-import firebase from 'firebase';
+import { firestore } from 'firebase';
 
 class GeoLocator extends React.Component<any, any> {
   componentDidMount() {
@@ -15,10 +15,11 @@ class GeoLocator extends React.Component<any, any> {
           .collection('events')
           .doc(eventId)
           .set({
-            location: new firebase.firestore.GeoPoint(
+            location: new firestore.GeoPoint(
               position.coords.latitude,
               position.coords.longitude
-            )
+            ),
+            address: 'Telliskivi 60a, Tallinn'
           });
       }, console.log);
     } else {

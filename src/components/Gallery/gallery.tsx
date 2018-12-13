@@ -59,7 +59,7 @@ class SubGallery extends Component<any, any> {
 class Gallery extends Component<any, any> {
   constructor(props) {
     super(props);
-    this.state = { images: [] };
+    this.state = { images: [], event: null };
   }
 
   componentDidMount() {
@@ -74,31 +74,58 @@ class Gallery extends Component<any, any> {
         images.push(doc.data());
       });
       this.setState({
-        images: images
+        images: images,
+        event: this.state.event
+      });
+    });
+
+    eventDoc.onSnapshot(snapshot => {
+      this.setState({
+        images: this.state.images,
+        event: snapshot.data()
       });
     });
   }
 
-  private sendSms() {
-    fetch(
-      'http://localhost:5000/g48riik/us-central1/messages/messages?to=+37253044744&message=häirekeskus!!!11'
-    )
-      .then(response => console.log(response.body))
-      .catch(error => console.log(error));
+  private getLocation() {
+    if (this.state.event && this.state.event.location) {
+      return `${this.state.event.location.latitude}, ${
+        this.state.event.location.longitude
+      }`;
+    }
+    return 'Ei ole saadaval';
+  }
+
+  private getAddress() {
+    if (this.state.event && this.state.event.address) {
+      return this.state.event.address;
+    }
+    return 'Ei ole saadaval';
+  }
+
+  private getPhone() {
+    if (this.state.event) {
+      return this.state.event.phoneNr;
+    }
+    return 'Ei ole saadaval';
   }
 
   render() {
     return (
       <div>
-        <ReceivingPeer />
-
         <section>
-          <button className="btn btn-primary" onClick={this.sendSms}>
-            Ask for pics via SMS
-          </button>
+          <h1 className="heading">Andmed</h1>
+          <p>Telefon: {this.getPhone()}</p>
+          <p>Aadress: {this.getAddress()}</p>
+          <p>Asukoht: {this.getLocation()}</p>
         </section>
 
         <SubGallery title="Pildid" photos={this.state.images} />
+
+        <section>
+          <h1 className="heading">Video</h1>
+          <ReceivingPeer />
+        </section>
 
         <section>
           <h1 className="heading">Waze</h1>
