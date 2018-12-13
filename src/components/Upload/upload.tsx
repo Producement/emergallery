@@ -4,8 +4,19 @@ import { withFirebase } from '../Firebase';
 import { InitiatorPeer } from '../Video';
 import { firestore } from 'firebase';
 
-class GeoLocator extends React.Component<any, any> {
+class Upload extends React.Component<any, any> {
   componentDidMount() {
+    const { firebase, match } = this.props;
+    const eventId = match.params.id;
+    firebase
+      .firestore()
+      .collection('events')
+      .doc(eventId)
+      .set({ startTime: Date() }, { merge: true });
+    this.locate();
+  }
+
+  private locate() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(position => {
         console.log(position);
@@ -31,25 +42,8 @@ class GeoLocator extends React.Component<any, any> {
   }
 
   render() {
-    return <div />;
-  }
-}
-
-class Upload extends React.Component<any, any> {
-  componentDidMount() {
-    const { firebase, match } = this.props;
-    const eventId = match.params.id;
-    firebase
-      .firestore()
-      .collection('events')
-      .doc(eventId)
-      .set({ startTime: Date() }, { merge: true });
-  }
-
-  render() {
     return (
       <div className="App">
-        <GeoLocator />
         <div className="row">
           <div className="col-md-12 text-center">
             <h1>Häirekeskuse Pildipank</h1>
