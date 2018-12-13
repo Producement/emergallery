@@ -59,7 +59,7 @@ class SubGallery extends Component<any, any> {
 class Gallery extends Component<any, any> {
   constructor(props) {
     super(props);
-    this.state = { images: [], twitter: [], snapchat: [] };
+    this.state = { images: [], twitter: [] };
   }
 
   componentDidMount() {
@@ -87,16 +87,6 @@ class Gallery extends Component<any, any> {
         twitter: images
       });
     });
-
-    eventDoc.collection('snapchat').onSnapshot((snapshot: any) => {
-      const images: Array<any> = [];
-      snapshot.forEach(function(doc: any) {
-        images.push(doc.data());
-      });
-      this.setState({
-        snapchat: images
-      });
-    });
   }
 
   private sendSms() {
@@ -120,7 +110,6 @@ class Gallery extends Component<any, any> {
 
         <SubGallery title="Pildid" photos={this.state.images} />
         <SubGallery title="Twitter" photos={this.state.twitter} />
-        <SubGallery title="Snapchat" photos={this.state.snapchat} />
 
         <section>
           <h1 className="heading">Waze</h1>
