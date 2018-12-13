@@ -16,8 +16,8 @@ class GeoLocator extends React.Component<any, any> {
           .doc(eventId)
           .set({
             location: new firestore.GeoPoint(
-              position.coords.latitude,
-              position.coords.longitude
+              59.438698, //position.coords.latitude,
+              24.729117 //position.coords.longitude
             ),
             address: 'Telliskivi 60a, Tallinn'
           });
@@ -33,6 +33,16 @@ class GeoLocator extends React.Component<any, any> {
 }
 
 class Upload extends React.Component<any, any> {
+  componentDidMount() {
+    const { firebase, match } = this.props;
+    const eventId = match.params.id;
+    firebase
+      .firestore()
+      .collection('events')
+      .doc(eventId)
+      .set({ startTime: Date() }, { merge: true });
+  }
+
   render() {
     return (
       <div className="App">

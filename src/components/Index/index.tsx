@@ -1,5 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import { withFirebase } from '../Firebase';
+import uuid from 'uuid/v4';
 
 class Index extends React.Component<any, any> {
   constructor(props) {
@@ -9,15 +11,28 @@ class Index extends React.Component<any, any> {
     this.handleKeyPress = this.handleKeyPress.bind(this);
   }
 
+  private createEvent() {
+    const id = uuid();
+    const eventDoc = this.props.firebase
+      .firestore()
+      .collection('events')
+      .doc(id)
+      .set({ phoneNr: this.state.value });
+    return id;
+  }
+
   private sendSms() {
+    const id = this.createEvent();
+    const message = `Palun avage link https://emergallery.producement.com/#/event/${id}`;
     fetch(
-      'http://localhost:5000/g48riik/us-central1/messages/messages?to=+37253044744&message=häirekeskus!!!11'
+      `http://localhost:5000/g48riik/us-central1/messages/messages?to=${
+        this.state.value
+      }&message=${message}`
     )
       .then(response => console.log(response.body))
       .catch(error => console.log(error));
+    return id;
   }
-
-  private handleNumber() {}
 
   handleChange(e) {
     this.setState({ value: e.target.value });
@@ -25,8 +40,8 @@ class Index extends React.Component<any, any> {
 
   handleKeyPress(e) {
     if (e.key === 'Enter') {
-      this.sendSms();
-      this.props.history.push('/event/S7FXwA766Nay1ymu0dcN');
+      const id = this.sendSms();
+      this.props.history.push(`/event/${id}`);
     }
   }
 
@@ -57,4 +72,4 @@ class Index extends React.Component<any, any> {
   }
 }
 
-export default withRouter(Index);
+export default withRouter(withFirebase(Index));
