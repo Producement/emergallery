@@ -27,7 +27,7 @@ class GeoLocator extends React.Component<any, any> {
   }
 
   render() {
-    return <div>{this.state.position}</div>;
+    return <div />;
   }
 }
 
