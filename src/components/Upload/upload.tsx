@@ -7,29 +7,44 @@ class Upload extends React.Component<any, any> {
   render() {
     return (
       <div className="App">
-        <div className="input-group mb-3">
-          <div className="custom-file">
-            <input
-              type="file"
-              className="custom-file-input"
-              id="inputGroupFile02"
-              onChange={this.handleSelectedFile}
-            />
-            <label
-              className="custom-file-label"
-              htmlFor="inputGroupFile02"
-              aria-describedby="inputGroupFileAddon02"
-            >
-              Upload picture
-            </label>
-          </div>
-          <div className="input-group-append">
-            <span className="input-group-text" id="inputGroupFileAddon02">
-              Upload
-            </span>
+        <div className="row">
+          <div className="col-md-12 text-center">
+            <h1>Häirekeskuse Pildipank</h1>
           </div>
         </div>
-        <InitiatorPeer />
+        <div className="row">
+          <div className="col-md-12 text-center">
+            <div className="input-group mb-3">
+              <div className="custom-file">
+                <input
+                  style={{ display: 'none' }}
+                  type="file"
+                  className="custom-file-input"
+                  id="inputGroupFile02"
+                  onChange={this.handleSelectedFile}
+                />
+                <label
+                  style={{ display: 'none' }}
+                  className="custom-file-label"
+                  htmlFor="inputGroupFile02"
+                  aria-describedby="inputGroupFileAddon02"
+                >
+                  LISA PILT
+                </label>
+              </div>
+              <div className="input-group">
+                <span className="input-group-text" id="inputGroupFileAddon02">
+                  LISA PILT
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-md-12 text-center">
+            <InitiatorPeer />
+          </div>
+        </div>
       </div>
     );
   }

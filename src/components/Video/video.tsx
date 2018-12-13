@@ -156,7 +156,7 @@ class InitiatorPeerComponent extends React.Component<any, any> {
   render() {
     return (
       <button className="btn btn-info" onClick={this.initiate}>
-        Video
+        LISA VIDEO
       </button>
     );
   }
