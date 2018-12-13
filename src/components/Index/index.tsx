@@ -47,47 +47,45 @@ class Index extends React.Component<any, any> {
 
   render() {
     return (
-      <div>
-        <section className="home h-100" id="home">
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-12">
-                <div className="home-wrapper text-center">
-                  <h1 className="animated fadeInDown wow" data-wow-delay=".1s">
-                    Häirekeskuse pildipank ehk{' '}
-                    <span className="text-colored">Pipa</span>
-                  </h1>
-                  <div className="row">
-                    <div className="col-sm-10 offset-sm-1">
-                      <p
-                        className="animated fadeInDown wow text-muted"
-                        data-wow-delay=".2s"
-                      >
-                        Sisesta siia inimese <strong>mobiilinumber</strong> ja
-                        saada talle sõnumiga link,
-                        <br />
-                        kuhu ta saab laadida pilte ja videoklippe.
-                      </p>
-                    </div>
+      <section className="home h-100" id="home">
+        <div className="container h-100">
+          <div className="row">
+            <div className="col-lg-12">
+              <div className="home-wrapper text-center">
+                <h1 className="animated fadeInDown wow" data-wow-delay=".1s">
+                  Häirekeskuse pildipank ehk{' '}
+                  <span className="text-colored">Pipa</span>
+                </h1>
+                <div className="row">
+                  <div className="col-sm-10 offset-sm-1">
+                    <p
+                      className="animated fadeInDown wow text-muted"
+                      data-wow-delay=".2s"
+                    >
+                      Sisesta siia inimese <strong>mobiilinumber</strong> ja
+                      saada talle sõnumiga link,
+                      <br />
+                      kuhu ta saab laadida pilte ja videoklippe.
+                    </p>
                   </div>
-                  <div className="text-center subscribe-form">
-                    <form onSubmit={this.handleSubmit}>
-                      <input
-                        type="text"
-                        placeholder="5650 4590"
-                        onChange={this.handleChange}
-                      />
-                      <button type="submit">Saada</button>
-                    </form>
-                  </div>
-
-                  <div className="clearfix" />
                 </div>
+                <div className="text-center subscribe-form">
+                  <form onSubmit={this.handleSubmit}>
+                    <input
+                      type="text"
+                      placeholder="5650 4590"
+                      onChange={this.handleChange}
+                    />
+                    <button type="submit">Saada</button>
+                  </form>
+                </div>
+
+                <div className="clearfix" />
               </div>
             </div>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
     );
   }
 }

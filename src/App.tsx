@@ -9,7 +9,7 @@ class App extends Component<any, any> {
   render() {
     return (
       <HashRouter>
-        <div>
+        <div className="h-100">
           <Route exact path="/" component={Index} />
           <Route path="/event/:id" component={Gallery} />
           <Route path="/upload/:id" component={Upload} />
