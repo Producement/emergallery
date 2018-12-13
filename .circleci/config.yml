@@ -54,7 +54,7 @@ workflows:
             branches:
               ignore:
                 - gh-pages
-      - test_stage:
+      - deploy:
           filters:
             branches:
               ignore:
