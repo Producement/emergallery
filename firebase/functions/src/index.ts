@@ -12,4 +12,4 @@ export const messages = functions.https.onRequest((request, response) => {
      .create({from: '+37259120139', body: request.query.message, to: request.query.to})
      .then(message => response.send(message))
      .catch(error => response.send(error));
-}
+});
