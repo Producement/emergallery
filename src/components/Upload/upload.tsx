@@ -7,33 +7,26 @@ class Upload extends React.Component<any, any> {
     return (
       <div className="App">
         <input type="file" name="" id="" onChange={this.handleselectedFile} />
-        <button onClick={this.handleUpload}>Upload</button>
         <button onClick={this.sendSms}>Send SMS to Tõnu</button>
       </div>
     );
   }
 
-  handleselectedFile = event => {
-    this.setState({
-      selectedFile: event.target.files[0],
-      loaded: 0
-    });
-  };
-
-  handleUpload = () => {
+  handleselectedFile = (event: any) => {
+    const selectedFile = event.target.files[0];
     const { firebase, match } = this.props;
-    const event = match.params.id;
+    const eventId = match.params.id;
     const storage = firebase.storage();
     const id = uuid();
     const ref = storage.ref().child(id);
-    ref.put(this.state.selectedFile).then(function(snapshot) {
+    ref.put(selectedFile).then(function(snapshot) {
       console.log('Saved file');
       snapshot.ref.getDownloadURL().then(function(url) {
         console.log(url);
         firebase
           .firestore()
           .collection('events')
-          .doc(event)
+          .doc(eventId)
           .collection('images')
           .doc(id)
           .set({ width: 1, height: 1, src: url });
