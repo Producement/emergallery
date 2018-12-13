@@ -14,30 +14,14 @@ class Upload extends React.Component<any, any> {
         </div>
         <div className="row">
           <div className="col-md-12 text-center">
-            <div className="input-group mb-3">
-              <div className="custom-file">
-                <input
-                  style={{ display: 'none' }}
-                  type="file"
-                  className="custom-file-input"
-                  id="inputGroupFile02"
-                  onChange={this.handleSelectedFile}
-                />
-                <label
-                  style={{ display: 'none' }}
-                  className="custom-file-label"
-                  htmlFor="inputGroupFile02"
-                  aria-describedby="inputGroupFileAddon02"
-                >
-                  LISA PILT
-                </label>
-              </div>
-              <div className="input-group">
-                <span className="input-group-text" id="inputGroupFileAddon02">
-                  LISA PILT
-                </span>
-              </div>
-            </div>
+            <label>
+              <input
+                style={{ display: 'none' }}
+                type="file"
+                onChange={this.handleSelectedFile}
+              />
+              <span className="btn btn-info">LISA PILT</span>
+            </label>
           </div>
         </div>
         <div className="row">
