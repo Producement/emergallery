@@ -1,5 +1,6 @@
 img {
   transition: 0.8s ease;
+  image-orientation: from-image;
 }
 
 img:hover {
