@@ -2,13 +2,14 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { withFirebase } from '../Firebase';
 import uuid from 'uuid/v4';
+import './home.css';
 
 class Index extends React.Component<any, any> {
   constructor(props) {
     super(props);
     this.state = { value: '' };
     this.handleChange = this.handleChange.bind(this);
-    this.handleKeyPress = this.handleKeyPress.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   private createEvent() {
@@ -38,35 +39,54 @@ class Index extends React.Component<any, any> {
     this.setState({ value: e.target.value });
   }
 
-  handleKeyPress(e) {
-    if (e.key === 'Enter') {
-      const id = this.sendSms();
-      this.props.history.push(`/event/${id}`);
-    }
+  handleSubmit(e) {
+    const id = this.sendSms();
+    this.props.history.push(`/event/${id}`);
+    e.preventDefault();
   }
 
   render() {
     return (
       <div>
-        <div className="row justify-content-center align-items-center">
-          <div className="col">
-            <h1 className="display-4 text-center">Häirekeskuse Pildipank</h1>
-          </div>
-        </div>
-        <div className="row justify-content-center align-items-center">
-          <div className="col-4">
-            <div className="form-group">
-              <input
-                className="form-control"
-                id="inputlg"
-                type="text"
-                placeholder="Sisesta mobiilinumber ja vajuta enter"
-                onKeyPress={this.handleKeyPress}
-                onChange={this.handleChange}
-              />
+        <section className="home h-100" id="home">
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-12">
+                <div className="home-wrapper text-center">
+                  <h1 className="animated fadeInDown wow" data-wow-delay=".1s">
+                    Häirekeskuse pildipank ehk{' '}
+                    <span className="text-colored">Pipa</span>
+                  </h1>
+                  <div className="row">
+                    <div className="col-sm-10 offset-sm-1">
+                      <p
+                        className="animated fadeInDown wow text-muted"
+                        data-wow-delay=".2s"
+                      >
+                        Sisesta siia inimese <strong>mobiilinumber</strong> ja
+                        saada talle sõnumiga link,
+                        <br />
+                        kuhu ta saab laadida pilte ja videoklippe.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="text-center subscribe-form">
+                    <form onSubmit={this.handleSubmit}>
+                      <input
+                        type="text"
+                        placeholder="5650 4590"
+                        onChange={this.handleChange}
+                      />
+                      <button type="submit">Saada</button>
+                    </form>
+                  </div>
+
+                  <div className="clearfix" />
+                </div>
+              </div>
             </div>
           </div>
-        </div>
+        </section>
       </div>
     );
   }
