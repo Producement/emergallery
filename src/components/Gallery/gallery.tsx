@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router';
 import ReactGallery from 'react-photo-gallery';
 import { withFirebase } from '../Firebase';
 
@@ -12,7 +13,7 @@ class Gallery extends Component<any, any> {
     this.props.firebase
       .firestore()
       .collection('events')
-      .doc(this.props.id)
+      .doc(this.props.match.params.id)
       .collection('images')
       .onSnapshot((snapshot: any) => {
         const images: Array<any> = [];
@@ -30,4 +31,4 @@ class Gallery extends Component<any, any> {
   }
 }
 
-export default withFirebase(Gallery);
+export default withRouter(withFirebase(Gallery));
