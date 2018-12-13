@@ -4,7 +4,7 @@ import Upload from './components/Upload';
 import { withFirebase } from './components/Firebase';
 import { HashRouter, Route } from 'react-router-dom';
 import Index from './components/Index';
-import bull from './components/Gallery/bull.svg';
+import bull from './bull.svg';
 
 class App extends Component<any, any> {
   render() {

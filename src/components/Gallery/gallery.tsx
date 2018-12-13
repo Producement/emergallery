@@ -6,7 +6,6 @@ import Lightbox from 'react-images';
 import { ReceivingPeer } from '../Video';
 import './Gallery.css';
 import man from './man01.png';
-import bull from './bull.svg';
 
 class SubGallery extends Component<any, any> {
   constructor(props) {
@@ -72,9 +71,25 @@ class SubGallery extends Component<any, any> {
 class Gallery extends Component<any, any> {
   constructor(props) {
     super(props);
-    this.state = { images: [], event: null };
+    this.state = {
+      images: [],
+      event: null
+    };
     this.goBack = this.goBack.bind(this);
   }
+
+  private dummyImage = {
+    src: 'https://www.echelonchicago.com/wp-content/uploads/2014/06/dummy.gif',
+    width: 500,
+    height: 271
+  };
+
+  private dummyImages = [
+    this.dummyImage,
+    this.dummyImage,
+    this.dummyImage,
+    this.dummyImage
+  ];
 
   componentDidMount() {
     const eventDoc = this.props.firebase
@@ -88,7 +103,7 @@ class Gallery extends Component<any, any> {
         images.push(doc.data());
       });
       this.setState({
-        images: images,
+        images: images.concat(this.dummyImages),
         event: this.state.event
       });
     });
