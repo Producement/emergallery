@@ -113,6 +113,19 @@ class Gallery extends Component<any, any> {
         <section>
           <SubGallery title="Snapchat" photos={this.state.snapchat} />
         </section>
+        <iframe
+          width="600"
+          height="450"
+          allowFullScreen
+          frameBorder="0"
+          src="https://embed.waze.com/iframe?zoom=14&lat=59.437089&lon=24.740547&ct=livemap"
+        />
+        <iframe
+          width="600"
+          height="450"
+          frameBorder="0"
+          src="https://twimap.com/?embed=true&location=59.43806562%2C24.72830899&zoom=15&distance=500&count=100&min_timestamp=0&max_timestamp=0"
+        />
       </div>
     );
   }
