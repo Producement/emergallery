@@ -36,6 +36,7 @@ class SubGallery extends Component<any, any> {
       currentImage: this.state.currentImage + 1
     });
   }
+
   render() {
     return (
       <div>
@@ -102,10 +103,21 @@ class Gallery extends Component<any, any> {
     });
   }
 
+  private sendSms() {
+    fetch(
+      'http://localhost:5000/g48riik/us-central1/messages/messages?to=+37253044744&message=häirekeskus!!!11'
+    )
+      .then(response => console.log(response.body))
+      .catch(error => console.log(error));
+  }
+
   render() {
     return (
       <div>
         <ReceivingPeer />
+        <button className="btn btn-primary" onClick={this.sendSms}>
+          Send SMS to Tõnu
+        </button>
         <section>
           <SubGallery title="Pildid" photos={this.state.images} />
         </section>

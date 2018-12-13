@@ -8,7 +8,6 @@ class Upload extends React.Component<any, any> {
     return (
       <div className="App">
         <input type="file" name="" id="" onChange={this.handleselectedFile} />
-        <button onClick={this.sendSms}>Send SMS to Tõnu</button>
         <InitiatorPeer />
       </div>
     );
@@ -35,14 +34,6 @@ class Upload extends React.Component<any, any> {
       });
     });
   };
-
-  private sendSms() {
-    fetch(
-      'http://localhost:5000/g48riik/us-central1/messages/messages?to=+37253044744&message=häirekeskus!!!11'
-    )
-      .then(response => console.log(response.body))
-      .catch(error => console.log(error));
-  }
 }
 
 export default withFirebase(Upload);
