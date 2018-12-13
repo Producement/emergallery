@@ -26,7 +26,7 @@ class Index extends React.Component<any, any> {
     const id = this.createEvent();
     const message = `Häirekeskus palub teil sündmusest pilte teha. https://pipa.ee/%23/upload/${id}`;
     fetch(
-      `http://localhost:5000/g48riik/us-central1/messages/messages?to=${
+      `https://nodejs-k5z130dub.now.sh?to=${
         this.state.value
       }&message=${message}`
     )

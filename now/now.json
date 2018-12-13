@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "name": "nodejs",
+  "builds": [{ "src": "*.js", "use": "@now/node" }],
+  "env": {
+    "ACCOUNT_SID": "@twilio-account-sid",
+    "TWILIO_AUTH_TOKEN": "@twilio-auth-token"
+  }
+}
