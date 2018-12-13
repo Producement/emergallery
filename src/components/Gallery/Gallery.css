@@ -12,3 +12,8 @@ img:hover {
   font-size: 14px;
   line-height: 48px;
 }
+
+figcaption {
+  font-size: 24px;
+  font-weight: bold;
+}

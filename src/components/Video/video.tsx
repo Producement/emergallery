@@ -32,7 +32,7 @@ class ReceivingPeerComponent extends React.Component<any, any> {
         .firestore()
         .collection('peers')
         .doc('peer1')
-        .set({ data: null });
+        .set({ data: '' });
     });
 
     this.props.firebase
@@ -40,8 +40,11 @@ class ReceivingPeerComponent extends React.Component<any, any> {
       .collection('peers')
       .doc('peer2')
       .onSnapshot((snapshot: any) => {
-        console.log(snapshot.data());
-        peer2.signal(snapshot.data().data);
+        const data = snapshot.data().data;
+        console.log(data);
+        if (data) {
+          peer2.signal(data);
+        }
       });
   }
   render() {
@@ -81,7 +84,7 @@ class InitiatorPeerComponent extends React.Component<any, any> {
         .firestore()
         .collection('peers')
         .doc('peer2')
-        .set({ data: null });
+        .set({ data: '' });
     });
 
     this.props.firebase
@@ -89,8 +92,11 @@ class InitiatorPeerComponent extends React.Component<any, any> {
       .collection('peers')
       .doc('peer1')
       .onSnapshot((snapshot: any) => {
-        console.log(snapshot.data());
-        peer1.signal(snapshot.data().data);
+        const data = snapshot.data().data;
+        console.log(data);
+        if (data) {
+          peer1.signal(data);
+        }
       });
   }
 
