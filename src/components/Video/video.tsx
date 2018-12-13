@@ -10,18 +10,25 @@ class ReceivingPeerComponent extends React.Component<any, any> {
   constructor(props) {
     super(props);
     this.screenshot = this.screenshot.bind(this);
+    this.init = this.init.bind(this);
   }
 
   componentDidMount() {
+    this.init();
+  }
+
+  private init() {
+    const { firebase, match } = this.props;
+    const eventId = match.params.id;
+    console.log('Initialising peer');
     var peer2 = new Peer();
 
     peer2.on('signal', data => {
       console.log('Peer2 signal');
-      console.log(data);
-      this.props.firebase
+      firebase
         .firestore()
         .collection('peers')
-        .doc('peer1')
+        .doc(`${eventId}#1`)
         .set({ data });
     });
 
@@ -33,26 +40,34 @@ class ReceivingPeerComponent extends React.Component<any, any> {
       }
     });
 
-    peer2.on('close', () => {
-      console.log('Closing peer2');
-      this.props.firebase
-        .firestore()
-        .collection('peers')
-        .doc('peer1')
-        .set({ data: '' });
-    });
-
-    this.props.firebase
+    const unsubscribe = firebase
       .firestore()
       .collection('peers')
-      .doc('peer2')
+      .doc(`${eventId}#2`)
       .onSnapshot((snapshot: any) => {
-        const data = snapshot.data().data;
-        console.log(data);
-        if (data) {
-          peer2.signal(data);
+        if (snapshot.data()) {
+          const data = snapshot.data().data;
+          if (data) {
+            console.log('Sending data');
+            peer2.signal(data);
+          }
         }
       });
+
+    const reset = e => {
+      console.log(`Closing peer2 ${e}`);
+      unsubscribe();
+      firebase
+        .firestore()
+        .collection('peers')
+        .doc(`${eventId}#1`)
+        .set({ data: '' });
+      this.init();
+    };
+
+    peer2.on('error', reset);
+
+    peer2.on('close', console.log);
   }
 
   screenshot() {
@@ -112,38 +127,43 @@ class InitiatorPeerComponent extends React.Component<any, any> {
   }
 
   gotMedia(stream) {
-    console.log('Got media');
+    const { firebase, match } = this.props;
+    const eventId = match.params.id;
+    console.log('Got media, initialising peer');
     var peer1 = new Peer({ initiator: true, stream: stream });
 
     peer1.on('signal', data => {
       console.log('Peer1 signal');
-      this.props.firebase
+      firebase
         .firestore()
         .collection('peers')
-        .doc('peer2')
+        .doc(`${eventId}#2`)
         .set({ data });
     });
 
-    peer1.on('close', () => {
-      console.log('Closing peer1');
-      this.props.firebase
-        .firestore()
-        .collection('peers')
-        .doc('peer2')
-        .set({ data: '' });
-    });
-
-    this.props.firebase
+    const unsubscribe = firebase
       .firestore()
       .collection('peers')
       .doc('peer1')
       .onSnapshot((snapshot: any) => {
-        const data = snapshot.data().data;
-        console.log(data);
-        if (data) {
-          peer1.signal(data);
+        if (snapshot.data()) {
+          const data = snapshot.data().data;
+          if (data) {
+            console.log('Sending data');
+            peer1.signal(data);
+          }
         }
       });
+
+    peer1.on('error', e => {
+      unsubscribe();
+      console.log(`Closing peer1 ${e}`);
+      firebase
+        .firestore()
+        .collection('peers')
+        .doc(`${eventId}#2`)
+        .set({ data: '' });
+    });
   }
 
   initiate() {
@@ -162,7 +182,7 @@ class InitiatorPeerComponent extends React.Component<any, any> {
   }
 }
 
-const InitiatorPeer = withFirebase(InitiatorPeerComponent);
+const InitiatorPeer = withRouter(withFirebase(InitiatorPeerComponent));
 const ReceivingPeer = withRouter(withFirebase(ReceivingPeerComponent));
 
 export { InitiatorPeer, ReceivingPeer };

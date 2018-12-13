@@ -2,7 +2,7 @@ import React from 'react';
 import uuid from 'uuid/v4';
 import { withFirebase } from '../Firebase';
 import { InitiatorPeer } from '../Video';
-import { firestore } from 'firebase';
+import * as firebase from 'firebase/app';
 
 class Upload extends React.Component<any, any> {
   componentDidMount() {
@@ -31,7 +31,7 @@ class Upload extends React.Component<any, any> {
       .doc(eventId)
       .set(
         {
-          location: new firestore.GeoPoint(
+          location: new firebase.firestore.GeoPoint(
             59.438698, //position.coords.latitude,
             24.729117 //position.coords.longitude
           ),
