@@ -60,6 +60,7 @@ class Gallery extends Component<any, any> {
   constructor(props) {
     super(props);
     this.state = { images: [], event: null };
+    this.goBack = this.goBack.bind(this);
   }
 
   componentDidMount() {
@@ -107,9 +108,28 @@ class Gallery extends Component<any, any> {
     }
   }
 
+  private goBack() {
+    this.props.history.push('/');
+  }
+
   render() {
     if (!this.state.event || !this.state.event.startTime) {
-      return <div>Kasutaja pole veel linki avanud</div>;
+      return (
+        <div className="container">
+          <div className="row justify-content-md-center">
+            <div className="col-md-auto">
+              <h1>{this.getPhone() || 'Kasutaja'} pole veel linki avanud</h1>
+            </div>
+          </div>
+          <div className="row justify-content-md-center">
+            <div className="col-md-auto">
+              <button className="btn btn-primary" onClick={this.goBack}>
+                Tagasi
+              </button>
+            </div>
+          </div>
+        </div>
+      );
     }
     return (
       <div>
