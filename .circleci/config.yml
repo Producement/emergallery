@@ -35,3 +35,24 @@ jobs:
             git config --global user.email $GITHUB_EMAIL
             git config --global user.name $GITHUB_NAME
             yarn deploy
+
+
+  deploy:
+    docker:
+      - image: circleci/node:11-browsers
+    steps:
+      - checkout
+      - run:
+          name: Deploy to Firebase
+          command: |
+            cd ./firebase/functions
+            yarn install
+            ./node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN
+
+
+workflows:
+  version: 2
+  emergallery:
+    jobs:
+      - build
+      - deploy
