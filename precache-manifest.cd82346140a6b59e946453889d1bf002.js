@@ -24,7 +24,7 @@ self.__precacheManifest = [
     "url": "/static/media/sos.402c5f32.png"
   },
   {
-    "revision": "e5365029d2a5bf471dabc2713de0cfc5",
+    "revision": "4f9d7070173e3c38b63eedf18cb10be2",
     "url": "/index.html"
   }
 ];
