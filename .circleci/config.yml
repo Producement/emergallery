@@ -3,11 +3,7 @@ jobs:
   build:
     docker:
       - image: circleci/node:11-browsers
-    working_directory: ~/registeracompany.ee
-
-    branches:
-      ignore:
-        - gh-pages
+    working_directory: ~/emergallery
 
     steps:
       - checkout
@@ -36,7 +32,6 @@ jobs:
             git config --global user.name $GITHUB_NAME
             yarn deploy
 
-
   deploy:
     docker:
       - image: circleci/node:11-browsers
@@ -55,4 +50,12 @@ workflows:
   emergallery:
     jobs:
       - build
+        filters:
+          branches:
+            ignore:
+              - gh-pages
       - deploy
+        filters:
+          branches:
+            ignore:
+              - gh-pages
