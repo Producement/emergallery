@@ -78,7 +78,7 @@ class InitiatorPeerComponent extends React.Component<any, any> {
 
   initiate() {
     navigator.getUserMedia(
-      { video: true, audio: true },
+      { video: { facingMode: { exact: 'environment' } }, audio: true },
       this.gotMedia,
       function() {}
     );
