@@ -96,7 +96,9 @@ class ReceivingPeerComponent extends React.Component<any, any> {
             this.liveVideo = input;
           }}
         />
-        <button onClick={this.screenshot}>Tee pilt</button>
+        <button className="btn btn-info" onClick={this.screenshot}>
+          Tee pilt
+        </button>
       </div>
     );
   }
@@ -152,7 +154,11 @@ class InitiatorPeerComponent extends React.Component<any, any> {
     );
   }
   render() {
-    return <button onClick={this.initiate}>Video</button>;
+    return (
+      <button className="btn btn-info" onClick={this.initiate}>
+        Video
+      </button>
+    );
   }
 }
 
