@@ -9,6 +9,9 @@
     "@types/react": "^16.7.14",
     "@types/react-dom": "^16.0.11",
     "firebase": "^5.7.0",
+    "husky": "^1.2.0",
+    "lint-staged": "^8.1.0",
+    "prettier": "^1.15.3",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-scripts": "2.1.1",
@@ -33,5 +36,16 @@
   ],
   "devDependencies": {
     "gh-pages": "^2.0.1"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --single-quote --write",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
