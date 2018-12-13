@@ -42,7 +42,7 @@ jobs:
           command: |
             cd ./firebase/functions
             yarn install
-            ./node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN
+            ./node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN --non-interactive
 
 
 workflows:
