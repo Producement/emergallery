@@ -1,9 +1,16 @@
 import React from 'react';
 import Peer from 'simple-peer';
 import { withFirebase } from '../Firebase';
+import uuid from 'uuid/v4';
+import { withRouter } from 'react-router';
 
 class ReceivingPeerComponent extends React.Component<any, any> {
   liveVideo: HTMLVideoElement | null = null;
+
+  constructor(props) {
+    super(props);
+    this.screenshot = this.screenshot.bind(this);
+  }
 
   componentDidMount() {
     var peer2 = new Peer();
@@ -47,13 +54,50 @@ class ReceivingPeerComponent extends React.Component<any, any> {
         }
       });
   }
+
+  screenshot() {
+    const canvas = document.createElement('canvas');
+    if (canvas) {
+      const video: any = this.liveVideo;
+      canvas.width = video.clientWidth;
+      canvas.height = video.clientHeight;
+      const ctx: any = canvas.getContext('2d');
+      ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+      const { firebase, match } = this.props;
+      const eventId = match.params.id;
+      const storage = firebase.storage();
+      const id = uuid();
+      const ref = storage.ref().child(id);
+
+      canvas.toBlob(blob => {
+        ref.put(blob).then(function(snapshot) {
+          console.log('Saved file');
+          snapshot.ref.getDownloadURL().then(function(url) {
+            console.log(url);
+            firebase
+              .firestore()
+              .collection('events')
+              .doc(eventId)
+              .collection('images')
+              .doc(id)
+              .set({ width: canvas.width, height: canvas.height, src: url });
+          });
+        });
+      });
+    }
+  }
+
   render() {
     return (
-      <video
-        ref={input => {
-          this.liveVideo = input;
-        }}
-      />
+      <div>
+        <video
+          ref={input => {
+            this.liveVideo = input;
+          }}
+        />
+        <button onClick={this.screenshot}>Tee pilt</button>
+      </div>
     );
   }
 }
@@ -102,7 +146,7 @@ class InitiatorPeerComponent extends React.Component<any, any> {
 
   initiate() {
     navigator.getUserMedia(
-      { video: { facingMode: 'environment' }, audio: true },
+      { video: true, audio: true },
       this.gotMedia,
       function() {}
     );
@@ -113,6 +157,6 @@ class InitiatorPeerComponent extends React.Component<any, any> {
 }
 
 const InitiatorPeer = withFirebase(InitiatorPeerComponent);
-const ReceivingPeer = withFirebase(ReceivingPeerComponent);
+const ReceivingPeer = withRouter(withFirebase(ReceivingPeerComponent));
 
 export { InitiatorPeer, ReceivingPeer };
