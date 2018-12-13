@@ -107,7 +107,7 @@ class Gallery extends Component<any, any> {
             height="450"
             allowFullScreen
             frameBorder="0"
-            src="https://embed.waze.com/iframe?zoom=14&lat=59.437089&lon=24.740547&ct=livemap"
+            src="https://embed.waze.com/iframe?zoom=14&lat=59.438698&lon=24.729117&ct=livemap"
           />
         </section>
 
@@ -117,7 +117,7 @@ class Gallery extends Component<any, any> {
             width="600"
             height="450"
             frameBorder="0"
-            src="https://twimap.com/?embed=true&location=59.43806562%2C24.72830899&zoom=15&distance=500&count=100&min_timestamp=0&max_timestamp=0"
+            src="https://twimap.com/?embed=true&location=59.438698%2C24.729117&zoom=15&distance=500&count=100&min_timestamp=0&max_timestamp=0"
           />
         </section>
       </div>
