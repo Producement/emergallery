@@ -94,7 +94,7 @@ class Gallery extends Component<any, any> {
 
         <section>
           <button className="btn btn-primary" onClick={this.sendSms}>
-            Send SMS to Tõnu
+            Ask for pics via SMS
           </button>
         </section>
 
