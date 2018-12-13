@@ -24,7 +24,7 @@ class Index extends React.Component<any, any> {
 
   private sendSms() {
     const id = this.createEvent();
-    const message = `Palun avage link https://emergallery.producement.com/#/event/${id}`;
+    const message = `Häirekeskus palub teil sündmusest pilte teha. https://pipa.ee/%23/upload/${id}`;
     fetch(
       `http://localhost:5000/g48riik/us-central1/messages/messages?to=${
         this.state.value
@@ -53,8 +53,8 @@ class Index extends React.Component<any, any> {
             <div className="col-lg-12">
               <div className="home-wrapper text-center">
                 <h1 className="animated fadeInDown wow" data-wow-delay=".1s">
-                  Häirekeskuse pildipank ehk{' '}
-                  <span className="text-colored">Pipa</span>
+                  Häirekeskuse <span className="text-colored">pildipank</span>{' '}
+                  ehk <span className="text-colored">pipa</span>.ee
                 </h1>
                 <div className="row">
                   <div className="col-sm-10 offset-sm-1">
