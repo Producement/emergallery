@@ -130,7 +130,7 @@ class InitiatorPeerComponent extends React.Component<any, any> {
     const { firebase, match } = this.props;
     const eventId = match.params.id;
     console.log('Got media, initialising peer');
-    var peer1 = new Peer({ initiator: true, stream: stream });
+    var peer1 = new Peer({ initiator: true, trickle: false, stream: stream });
 
     peer1.on('signal', data => {
       console.log('Peer1 signal');
@@ -144,7 +144,7 @@ class InitiatorPeerComponent extends React.Component<any, any> {
     const unsubscribe = firebase
       .firestore()
       .collection('peers')
-      .doc('peer1')
+      .doc(`${eventId}#1`)
       .onSnapshot((snapshot: any) => {
         if (snapshot.data()) {
           const data = snapshot.data().data;
