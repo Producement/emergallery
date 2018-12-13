@@ -8,23 +8,26 @@ class GeoLocator extends React.Component<any, any> {
   componentDidMount() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(position => {
-        const eventId = this.props.match.params.id;
         console.log(position);
-        this.props.firebase
-          .firestore()
-          .collection('events')
-          .doc(eventId)
-          .set({
-            location: new firestore.GeoPoint(
-              59.438698, //position.coords.latitude,
-              24.729117 //position.coords.longitude
-            ),
-            address: 'Telliskivi 60a, Tallinn'
-          });
       }, console.log);
     } else {
       console.log('Error');
     }
+    const eventId = this.props.match.params.id;
+    this.props.firebase
+      .firestore()
+      .collection('events')
+      .doc(eventId)
+      .set(
+        {
+          location: new firestore.GeoPoint(
+            59.438698, //position.coords.latitude,
+            24.729117 //position.coords.longitude
+          ),
+          address: 'Telliskivi 60a, Tallinn'
+        },
+        { merge: true }
+      );
   }
 
   render() {
