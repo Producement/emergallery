@@ -16,7 +16,10 @@ class Firebase {
   }
 
   public firestore() {
-    return app.firestore();
+    const firestore = app.firestore();
+    const settings = { timestampsInSnapshots: true };
+    firestore.settings(settings);
+    return firestore;
   }
 }
 
