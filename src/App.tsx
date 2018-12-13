@@ -3,7 +3,6 @@ import Gallery from './components/Gallery';
 import Upload from './components/Upload';
 import { withFirebase } from './components/Firebase';
 import { HashRouter, Route } from 'react-router-dom';
-import './App.css';
 
 class App extends Component<any, any> {
   render() {

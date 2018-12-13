@@ -4,6 +4,7 @@ import ReactGallery from 'react-photo-gallery';
 import { withFirebase } from '../Firebase';
 import Lightbox from 'react-images';
 import { ReceivingPeer } from '../Video';
+import './Gallery.css';
 
 class SubGallery extends Component<any, any> {
   constructor(props) {
