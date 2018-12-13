@@ -11,7 +11,7 @@ class App extends Component<any, any> {
       <HashRouter>
         <div>
           <Route path="/event/:id" component={Gallery} />
-          <Route path="/upload" component={Upload} />
+          <Route path="/upload/:id" component={Upload} />
         </div>
       </HashRouter>
     );
