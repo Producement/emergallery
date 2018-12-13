@@ -50,12 +50,12 @@ workflows:
   emergallery:
     jobs:
       - build
-        filters:
-          branches:
-            ignore:
-              - gh-pages
+          filters:
+            branches:
+              ignore:
+                - gh-pages
       - deploy
-        filters:
-          branches:
-            ignore:
-              - gh-pages
+          filters:
+            branches:
+              ignore:
+                - gh-pages
