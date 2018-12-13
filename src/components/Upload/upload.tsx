@@ -1,6 +1,7 @@
 import React from 'react';
 import uuid from 'uuid/v4';
 import { withFirebase } from '../Firebase';
+import { InitiatorPeer } from '../Video';
 
 class Upload extends React.Component<any, any> {
   render() {
@@ -8,6 +9,7 @@ class Upload extends React.Component<any, any> {
       <div className="App">
         <input type="file" name="" id="" onChange={this.handleselectedFile} />
         <button onClick={this.sendSms}>Send SMS to Tõnu</button>
+        <InitiatorPeer />
       </div>
     );
   }

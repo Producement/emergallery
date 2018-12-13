@@ -3,6 +3,7 @@ import { withRouter } from 'react-router';
 import ReactGallery from 'react-photo-gallery';
 import { withFirebase } from '../Firebase';
 import Lightbox from 'react-images';
+import { ReceivingPeer } from '../Video';
 
 class SubGallery extends Component<any, any> {
   constructor(props) {
@@ -104,6 +105,7 @@ class Gallery extends Component<any, any> {
   render() {
     return (
       <div>
+        <ReceivingPeer />
         <section>
           <SubGallery title="Pildid" photos={this.state.images} />
         </section>
