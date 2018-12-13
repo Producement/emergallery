@@ -3,7 +3,7 @@ img {
   image-orientation: from-image;
 }
 
-img:hover {
+.react-photo-gallery--gallery img:hover {
   transform: scale(1.01);
   opacity: 0.7;
 }
@@ -17,4 +17,151 @@ img:hover {
 figcaption {
   font-size: 24px;
   font-weight: bold;
+}
+
+.main-section {
+  border: 1px solid #138496;
+  background-color: #fff;
+}
+.profile-header {
+  background-color: #17a2b8;
+  height: 150px;
+}
+.user-detail {
+  margin: -50px 0px 30px 0px;
+}
+.user-detail img {
+  height: 100px;
+  width: 100px;
+}
+.user-detail h5 {
+  margin: 15px 0px 5px 0px;
+}
+.user-social-detail {
+  padding: 15px 0px;
+  background-color: #17a2b8;
+}
+.user-social-detail a i {
+  color: #fff;
+  font-size: 23px;
+  padding: 0px 5px;
+}
+
+.title {
+  font-weight: 300;
+  line-height: 50px;
+  margin-top: 0px;
+}
+
+.sub-title {
+  color: #97a0af;
+  margin-bottom: 50px;
+}
+
+.title-box h3 {
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+.title-box .border {
+  height: 4px;
+  width: 60px;
+  border-radius: 5px;
+  margin: 0px auto 30px auto;
+  border: none !important;
+}
+
+.title-box .title-alt {
+  text-transform: uppercase;
+  margin-bottom: 0px;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+/*======= Helper classes ======== */
+.section {
+  padding-top: 100px;
+  padding-bottom: 80px;
+}
+
+.bg-gray {
+  background-color: #fafafa;
+  border-bottom: 1px solid #f5f5f5;
+  border-top: 1px solid #f5f5f5;
+}
+
+.text-muted {
+  color: #97a0af !important;
+}
+
+.h2,
+h2 {
+  font-size: 30px;
+}
+
+.h3,
+h3 {
+  font-size: 24px;
+}
+
+.h4,
+h4 {
+  font-size: 18px;
+}
+
+.h5,
+h5 {
+  font-size: 14px;
+}
+
+.h6,
+h6 {
+  font-size: 12px;
+}
+
+/*======= Footer =======*/
+
+.footer {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.footer h5 {
+  color: #333;
+  font-size: 15px;
+  margin-bottom: 20px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.footer a {
+  color: #9aa7af;
+}
+
+.footer ul li {
+  margin: 5px 0px;
+}
+
+.footer-alt {
+  border-top: 1px solid rgba(151, 160, 175, 0.2);
+  margin-top: 30px;
+  padding-top: 20px;
+}
+
+.footer-alt .logo {
+  margin-bottom: 0px;
+  height: auto;
+  padding: 0px;
+}
+
+/* Footer small */
+.footer-sm .logo {
+  float: none;
+}
+
+.logo img {
+  max-height: 1.8rem;
+  max-width: 1.8rem;
+  vertical-align: top;
+  opacity: 0.75;
 }

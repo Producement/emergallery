@@ -5,6 +5,8 @@ import { withFirebase } from '../Firebase';
 import Lightbox from 'react-images';
 import { ReceivingPeer } from '../Video';
 import './Gallery.css';
+import man from './man01.png';
+import bull from './bull.svg';
 
 class SubGallery extends Component<any, any> {
   constructor(props) {
@@ -41,7 +43,18 @@ class SubGallery extends Component<any, any> {
   render() {
     return (
       <section>
-        <h1 className="heading">{this.props.title}</h1>
+        <div className="row section">
+          <div className="col-lg-12 text-center">
+            <div className="title-box">
+              <p className="title-alt">Pildid</p>
+              <h3 className="fadeIn animated wow" data-wow-delay=".1s">
+                Üleslaetud pildid
+              </h3>
+              <div className="border" />
+            </div>
+          </div>
+        </div>
+
         <ReactGallery photos={this.props.photos} onClick={this.openLightbox} />
         <Lightbox
           images={this.props.photos}
@@ -88,11 +101,15 @@ class Gallery extends Component<any, any> {
     });
   }
 
-  private getLocation() {
+  private getLongitude() {
     if (this.state.event && this.state.event.location) {
-      return `${this.state.event.location.latitude}, ${
-        this.state.event.location.longitude
-      }`;
+      return this.state.event.location.longitude;
+    }
+  }
+
+  private getLatitude() {
+    if (this.state.event && this.state.event.location) {
+      return this.state.event.location.latitude;
     }
   }
 
@@ -132,47 +149,111 @@ class Gallery extends Component<any, any> {
       );
     }
     return (
-      <div>
-        <section>
-          <h1 className="heading">Andmed</h1>
-          <p>Telefon: {this.getPhone()}</p>
-          <p>Aadress: {this.getAddress() || 'Ei ole saadaval'}</p>
-          <p>Asukoht: {this.getLocation() || 'Ei ole saadaval'}</p>
-        </section>
-
+      <div className="container">
         {this.state.images.length > 0 && (
-          <SubGallery title="Pildid" photos={this.state.images} />
+          <SubGallery photos={this.state.images} />
         )}
 
         <section>
-          <h1 className="heading">Video</h1>
+          <div className="row section">
+            <div className="col-lg-12 text-center">
+              <div className="title-box">
+                <p className="title-alt">Video</p>
+                <h3 className="fadeIn animated wow" data-wow-delay=".1s">
+                  Üleslaetud klipid
+                </h3>
+                <div className="border" />
+              </div>
+            </div>
+          </div>
           <ReceivingPeer />
         </section>
 
-        {this.getLocation() && (
+        <div className="row section">
+          <div className="col-lg-12 text-center">
+            <div className="title-box">
+              <p className="title-alt">Inimene</p>
+              <h3 className="fadeIn animated wow" data-wow-delay=".1s">
+                Inimese profiil
+              </h3>
+              <div className="border" />
+            </div>
+          </div>
+        </div>
+
+        <div className="offset-lg-4 col-lg-4 col-sm-6 col-12 main-section text-center">
+          <div className="row">
+            <div className="col-lg-12 col-sm-12 col-12 profile-header" />
+          </div>
+          <div className="row user-detail">
+            <div className="col-lg-12 col-sm-12 col-12">
+              <img src={man} className="rounded-circle img-thumbnail" />
+              <h5>{this.getPhone()}</h5>
+              <p>
+                <i className="fa fa-map-marker" aria-hidden="true" />{' '}
+                {this.getAddress() || 'Ei ole saadaval'}
+              </p>
+              <hr />
+              <p>
+                <i className="fa fa-compass" aria-hidden="true" />{' '}
+                {this.getLatitude() || 'Ei ole saadaval'}
+              </p>
+              <p>
+                <i className="fa fa-globe" aria-hidden="true" />{' '}
+                {this.getLongitude() || 'Ei ole saadaval'}
+              </p>
+            </div>
+          </div>
+          <div className="row user-social-detail" />
+        </div>
+
+        {this.getLatitude() && this.getLongitude() && (
           <div>
             <section>
-              <h1 className="heading">Waze</h1>
-              <iframe
-                width="600"
-                height="450"
-                allowFullScreen
-                frameBorder="0"
-                src="https://embed.waze.com/iframe?zoom=14&lat=59.438698&lon=24.729117&ct=livemap"
-              />
+              <div className="row section">
+                <div className="col-lg-12 text-center">
+                  <div className="title-box">
+                    <p className="title-alt">Waze</p>
+                    <h3 className="fadeIn animated wow" data-wow-delay=".1s">
+                      Sündmused kaardil
+                    </h3>
+                    <div className="border" />
+                  </div>
+                </div>
+              </div>
+              <div className="embed-responsive embed-responsive-21by9">
+                <iframe
+                  allowFullScreen
+                  frameBorder="0"
+                  src="https://embed.waze.com/iframe?zoom=14&lat=59.438698&lon=24.729117&ct=livemap"
+                />
+              </div>
             </section>
 
             <section>
-              <h1 className="heading">Twitter</h1>
-              <iframe
-                width="600"
-                height="450"
-                frameBorder="0"
-                src="https://twimap.com/?embed=true&location=59.438698%2C24.729117&zoom=15&distance=500&count=100&min_timestamp=0&max_timestamp=0"
-              />
+              <div className="row section">
+                <div className="col-lg-12 text-center">
+                  <div className="title-box">
+                    <p className="title-alt">Twitter</p>
+                    <h3 className="fadeIn animated wow" data-wow-delay=".1s">
+                      Säutsud kaardil
+                    </h3>
+                    <div className="border" />
+                  </div>
+                </div>
+              </div>
+              <div className="embed-responsive embed-responsive-21by9">
+                <iframe
+                  allowFullScreen
+                  frameBorder="0"
+                  src="https://twimap.com/?embed=true&location=59.438698%2C24.729117&zoom=15&distance=500&count=100&min_timestamp=0&max_timestamp=0"
+                />
+              </div>
             </section>
           </div>
         )}
+
+        <div className="section" />
       </div>
     );
   }
