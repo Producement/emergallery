@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ReactGridGallery from 'react-grid-gallery';
+import ReactGallery from 'react-photo-gallery';
 import { withFirebase } from '../Firebase';
 
 class Gallery extends Component<any, any> {
@@ -26,7 +26,7 @@ class Gallery extends Component<any, any> {
   }
 
   render() {
-    return <ReactGridGallery images={this.state.images} />;
+    return <ReactGallery photos={this.state.images} />;
   }
 }
 
