@@ -132,7 +132,7 @@ class Gallery extends Component<any, any> {
   render() {
     if (!this.state.event || !this.state.event.startTime) {
       return (
-        <div className="container">
+        <div className="container section h-100">
           <div className="row justify-content-md-center">
             <div className="col-md-auto">
               <h1>{this.getPhone() || 'Kasutaja'} pole veel linki avanud</h1>

@@ -26,7 +26,7 @@ class App extends Component<any, any> {
                     </div>
                     <div className="float-right pull-none ">
                       <p className="pull-right text-muted m-b-0">
-                        2018{' '}
+                        2018 &copy;{' '}
                         <a href="https://producement.com">Producement.com</a>
                       </p>
                     </div>
