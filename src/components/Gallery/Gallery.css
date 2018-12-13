@@ -6,3 +6,9 @@ img:hover {
   transform: scale(1.01);
   opacity: 0.7;
 }
+
+.heading {
+  color: #3c4043;
+  font-size: 14px;
+  line-height: 48px;
+}

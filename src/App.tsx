@@ -8,7 +8,7 @@ class App extends Component<any, any> {
   render() {
     return (
       <HashRouter>
-        <div>
+        <div className="container-fluid">
           <Route path="/event/:id" component={Gallery} />
           <Route path="/upload/:id" component={Upload} />
         </div>

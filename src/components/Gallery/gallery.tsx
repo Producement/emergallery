@@ -40,23 +40,18 @@ class SubGallery extends Component<any, any> {
 
   render() {
     return (
-      <div>
-        <section>
-          <h1>{this.props.title}</h1>
-          <ReactGallery
-            photos={this.props.photos}
-            onClick={this.openLightbox}
-          />
-          <Lightbox
-            images={this.props.photos}
-            onClose={this.closeLightbox}
-            onClickPrev={this.gotoPrevious}
-            onClickNext={this.gotoNext}
-            currentImage={this.state.currentImage}
-            isOpen={this.state.lightboxIsOpen}
-          />
-        </section>
-      </div>
+      <section>
+        <h1 className="heading">{this.props.title}</h1>
+        <ReactGallery photos={this.props.photos} onClick={this.openLightbox} />
+        <Lightbox
+          images={this.props.photos}
+          onClose={this.closeLightbox}
+          onClickPrev={this.gotoPrevious}
+          onClickNext={this.gotoNext}
+          currentImage={this.state.currentImage}
+          isOpen={this.state.lightboxIsOpen}
+        />
+      </section>
     );
   }
 }
@@ -116,31 +111,37 @@ class Gallery extends Component<any, any> {
     return (
       <div>
         <ReceivingPeer />
-        <button className="btn btn-primary" onClick={this.sendSms}>
-          Send SMS to Tõnu
-        </button>
+
         <section>
-          <SubGallery title="Pildid" photos={this.state.images} />
+          <button className="btn btn-primary" onClick={this.sendSms}>
+            Send SMS to Tõnu
+          </button>
         </section>
+
+        <SubGallery title="Pildid" photos={this.state.images} />
+        <SubGallery title="Twitter" photos={this.state.twitter} />
+        <SubGallery title="Snapchat" photos={this.state.snapchat} />
+
         <section>
-          <SubGallery title="Twitter" photos={this.state.twitter} />
+          <h1 className="heading">Waze</h1>
+          <iframe
+            width="600"
+            height="450"
+            allowFullScreen
+            frameBorder="0"
+            src="https://embed.waze.com/iframe?zoom=14&lat=59.437089&lon=24.740547&ct=livemap"
+          />
         </section>
+
         <section>
-          <SubGallery title="Snapchat" photos={this.state.snapchat} />
+          <h1 className="heading">Twitter</h1>
+          <iframe
+            width="600"
+            height="450"
+            frameBorder="0"
+            src="https://twimap.com/?embed=true&location=59.43806562%2C24.72830899&zoom=15&distance=500&count=100&min_timestamp=0&max_timestamp=0"
+          />
         </section>
-        <iframe
-          width="600"
-          height="450"
-          allowFullScreen
-          frameBorder="0"
-          src="https://embed.waze.com/iframe?zoom=14&lat=59.437089&lon=24.740547&ct=livemap"
-        />
-        <iframe
-          width="600"
-          height="450"
-          frameBorder="0"
-          src="https://twimap.com/?embed=true&location=59.43806562%2C24.72830899&zoom=15&distance=500&count=100&min_timestamp=0&max_timestamp=0"
-        />
       </div>
     );
   }
