@@ -66,3 +66,8 @@ code {
 .btn-shadow.btn-primary {
   box-shadow: 1px 5px 9px rgba(241, 96, 1, 0.32);
 }
+
+.btn {
+  border-radius: 30px !important;
+  padding: 11px 30px !important;
+}

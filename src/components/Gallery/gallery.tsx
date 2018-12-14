@@ -199,7 +199,7 @@ class Gallery extends Component<any, any> {
           </div>
         </div>
 
-        <div className="offset-lg-4 col-lg-4 col-sm-6 col-12 main-section text-center">
+        <div className="offset-lg-4 col-lg-4 offset-md-3 col-md-6 col-sm-6 col-12 main-section text-center">
           <div className="row">
             <div className="col-lg-12 col-sm-12 col-12 profile-header" />
           </div>

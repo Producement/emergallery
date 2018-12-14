@@ -64,6 +64,10 @@
   cursor: pointer;
 }
 
+.subscribe-form button:hover {
+  opacity: 0.95;
+}
+
 .logo {
   max-height: 1.8rem;
   max-width: 1.8rem;
