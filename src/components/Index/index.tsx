@@ -74,7 +74,7 @@ class Index extends React.Component<any, any> {
                   <form onSubmit={this.handleSubmit}>
                     <input
                       type="text"
-                      placeholder="5650 4590"
+                      placeholder="5555555"
                       onChange={this.handleChange}
                     />
                     <button type="submit">Saada</button>

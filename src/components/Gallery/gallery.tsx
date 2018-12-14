@@ -148,17 +148,19 @@ class Gallery extends Component<any, any> {
   render() {
     if (!this.state.event || !this.state.event.startTime) {
       return (
-        <div className="container section h-100">
-          <div className="row justify-content-md-center">
-            <div className="col-md-auto">
-              <h1>{this.getPhone() || 'Kasutaja'} pole veel linki avanud</h1>
-            </div>
-          </div>
-          <div className="row justify-content-md-center">
-            <div className="col-md-auto">
-              <button className="btn btn-primary" onClick={this.goBack}>
-                Tagasi
-              </button>
+        <div className="h-100">
+          <div className="container section">
+            <div className="row">
+              <div className="col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-12">
+                <div className="text-center my-4 p-4 bg-white rounded shadow-sm">
+                  <h3 className="mb-3">
+                    {this.getPhone() || 'Kasutaja'} pole veel linki avanud
+                  </h3>
+                  <button className="btn btn-primary" onClick={this.goBack}>
+                    Tagasi
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
