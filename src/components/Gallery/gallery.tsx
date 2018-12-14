@@ -157,10 +157,32 @@ class Gallery extends Component<any, any> {
             <div className="row">
               <div className="col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-12">
                 <div className="text-center my-4 p-4 bg-white rounded shadow-sm">
-                  <h3 className="mb-3">
-                    {this.getPhone() || 'Kasutaja'} pole veel linki avanud
+                  <div className="sk-circle">
+                    <div className="sk-circle1 sk-child" />
+                    <div className="sk-circle2 sk-child" />
+                    <div className="sk-circle3 sk-child" />
+                    <div className="sk-circle4 sk-child" />
+                    <div className="sk-circle5 sk-child" />
+                    <div className="sk-circle6 sk-child" />
+                    <div className="sk-circle7 sk-child" />
+                    <div className="sk-circle8 sk-child" />
+                    <div className="sk-circle9 sk-child" />
+                    <div className="sk-circle10 sk-child" />
+                    <div className="sk-circle11 sk-child" />
+                    <div className="sk-circle12 sk-child" />
+                  </div>
+
+                  <h3>
+                    <i className="fa fa-phone" aria-hidden="true" />{' '}
+                    {this.getPhone() || 'Kasutaja'}
                   </h3>
-                  <button className="btn btn-primary" onClick={this.goBack}>
+                  <h6 className="text-secondary mb-4">
+                    pole veel linki avanud
+                  </h6>
+                  <button
+                    className="btn btn-primary btn-back"
+                    onClick={this.goBack}
+                  >
                     Tagasi
                   </button>
                 </div>
