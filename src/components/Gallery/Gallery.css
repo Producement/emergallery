@@ -327,13 +327,6 @@ h6 {
  * Sidebar
  */
 
-.sidebar {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-}
-
 .sidebar-sticky {
   position: relative;
   top: 0;
