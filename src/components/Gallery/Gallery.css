@@ -452,7 +452,8 @@ h6 {
 
 .profile-usermenu ul li a i {
   margin-right: 8px;
-  font-size: 14px;
+  font-size: 20px;
+  color: #999;
 }
 
 .profile-usermenu ul li a:hover {
