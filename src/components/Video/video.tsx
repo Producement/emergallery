@@ -11,9 +11,17 @@ class ReceivingPeerComponent extends React.Component<any, any> {
     super(props);
     this.screenshot = this.screenshot.bind(this);
     this.init = this.init.bind(this);
+    this.state = { playing: false };
   }
 
   componentDidMount() {
+    if (this.liveVideo) {
+      this.liveVideo.onplay = () => {
+        this.setState({
+          playing: true
+        });
+      };
+    }
     this.init();
   }
 
@@ -105,15 +113,28 @@ class ReceivingPeerComponent extends React.Component<any, any> {
 
   render() {
     return (
-      <div>
-        <video
-          ref={input => {
-            this.liveVideo = input;
-          }}
-        />
-        <button className="btn btn-info" onClick={this.screenshot}>
-          Tee pilt
-        </button>
+      <div className="row text-center">
+        <div className="col">
+          {!this.state.playing && (
+            <img
+              key="d"
+              src="https://www.echelonchicago.com/wp-content/uploads/2014/06/dummy.gif"
+            />
+          )}
+          <video
+            ref={input => {
+              this.liveVideo = input;
+            }}
+          />
+          {this.state.playing && (
+            <button
+              className="btn btn-primary btn-block btn-lg"
+              onClick={this.screenshot}
+            >
+              Tee pilt
+            </button>
+          )}
+        </div>
       </div>
     );
   }

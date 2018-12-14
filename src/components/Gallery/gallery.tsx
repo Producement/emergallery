@@ -178,7 +178,7 @@ class Gallery extends Component<any, any> {
               <div className="title-box">
                 <p className="title-alt">Video</p>
                 <h3 className="fadeIn animated wow" data-wow-delay=".1s">
-                  Üleslaetud klipid
+                  Live videoülekanne
                 </h3>
                 <div className="border" />
               </div>
