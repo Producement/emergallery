@@ -294,7 +294,7 @@ class Gallery extends Component<any, any> {
                         <iframe
                           allowFullScreen
                           frameBorder="0"
-                          src="https://embed.waze.com/iframe?zoom=15&lat=59.438698&lon=24.729117&ct=livemap"
+                          src={`https://embed.waze.com/iframe?zoom=15&lat=${this.getLatitude()}&lon=${this.getLongitude()}&ct=livemap`}
                         />
                       </div>
                     </section>
@@ -317,7 +317,7 @@ class Gallery extends Component<any, any> {
                         <iframe
                           allowFullScreen
                           frameBorder="0"
-                          src="https://twimap.com/?embed=true&location=59.438698%2C24.729117&zoom=15&distance=500&count=100&min_timestamp=0&max_timestamp=0"
+                          src={`https://twimap.com/?embed=true&location=${this.getLatitude()}%2C${this.getLongitude()}&zoom=15&distance=500&count=100&min_timestamp=0&max_timestamp=0`}
                         />
                       </div>
                     </section>

@@ -19,26 +19,24 @@ class Upload extends React.Component<any, any> {
   private locate() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(position => {
-        console.log(position);
+        const eventId = this.props.match.params.id;
+        this.props.firebase
+          .firestore()
+          .collection('events')
+          .doc(eventId)
+          .set(
+            {
+              location: new firebase.firestore.GeoPoint(
+                position.coords.latitude,
+                position.coords.longitude
+              )
+            },
+            { merge: true }
+          );
       }, console.log);
     } else {
       console.log('Error');
     }
-    const eventId = this.props.match.params.id;
-    this.props.firebase
-      .firestore()
-      .collection('events')
-      .doc(eventId)
-      .set(
-        {
-          location: new firebase.firestore.GeoPoint(
-            59.438698, //position.coords.latitude,
-            24.729117 //position.coords.longitude
-          ),
-          address: 'Telliskivi 60a, Tallinn'
-        },
-        { merge: true }
-      );
   }
 
   render() {
