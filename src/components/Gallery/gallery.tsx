@@ -5,7 +5,7 @@ import { withFirebase } from '../Firebase';
 import Lightbox from 'react-images';
 import { ReceivingPeer } from '../Video';
 import './Gallery.css';
-import man from './tonu.png';
+import man from './man01.png';
 import bull from '../../bull.svg';
 import { HashLink } from 'react-router-hash-link';
 
