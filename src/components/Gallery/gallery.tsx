@@ -20,23 +20,23 @@ class SubGallery extends Component<any, any> {
   openLightbox(event, obj) {
     this.setState({
       currentImage: obj.index,
-      lightboxIsOpen: true,
+      lightboxIsOpen: true
     });
   }
   closeLightbox() {
     this.setState({
       currentImage: 0,
-      lightboxIsOpen: false,
+      lightboxIsOpen: false
     });
   }
   gotoPrevious() {
     this.setState({
-      currentImage: this.state.currentImage - 1,
+      currentImage: this.state.currentImage - 1
     });
   }
   gotoNext() {
     this.setState({
-      currentImage: this.state.currentImage + 1,
+      currentImage: this.state.currentImage + 1
     });
   }
 
@@ -74,7 +74,7 @@ class Gallery extends Component<any, any> {
     super(props);
     this.state = {
       images: [],
-      event: null,
+      event: null
     };
     this.goBack = this.goBack.bind(this);
   }
@@ -85,7 +85,7 @@ class Gallery extends Component<any, any> {
       src:
         'https://www.echelonchicago.com/wp-content/uploads/2014/06/dummy.gif',
       width: 500,
-      height: 271,
+      height: 271
     };
   }
 
@@ -101,19 +101,19 @@ class Gallery extends Component<any, any> {
         images.push(doc.data());
       });
       let i = 0;
-      while (images.length < 6) {
+      while (images.length < 4) {
         images.push(this.dummyImage(i++));
       }
       this.setState({
         images: images,
-        event: this.state.event,
+        event: this.state.event
       });
     });
 
     eventDoc.onSnapshot(snapshot => {
       this.setState({
         images: this.state.images,
-        event: snapshot.data(),
+        event: snapshot.data()
       });
     });
   }
@@ -248,52 +248,51 @@ class Gallery extends Component<any, any> {
           <div className="row user-social-detail" />
         </div>
 
-        {this.getLatitude() &&
-          this.getLongitude() && (
-            <div>
-              <section>
-                <div className="row section">
-                  <div className="col-lg-12 text-center">
-                    <div className="title-box">
-                      <p className="title-alt">Waze</p>
-                      <h3 className="fadeIn animated wow" data-wow-delay=".1s">
-                        Sündmused kaardil
-                      </h3>
-                      <div className="border" />
-                    </div>
+        {this.getLatitude() && this.getLongitude() && (
+          <div>
+            <section>
+              <div className="row section">
+                <div className="col-lg-12 text-center">
+                  <div className="title-box">
+                    <p className="title-alt">Waze</p>
+                    <h3 className="fadeIn animated wow" data-wow-delay=".1s">
+                      Sündmused kaardil
+                    </h3>
+                    <div className="border" />
                   </div>
                 </div>
-                <div className="embed-responsive embed-responsive-21by9">
-                  <iframe
-                    allowFullScreen
-                    frameBorder="0"
-                    src="https://embed.waze.com/iframe?zoom=14&lat=59.438698&lon=24.729117&ct=livemap"
-                  />
-                </div>
-              </section>
+              </div>
+              <div className="embed-responsive embed-responsive-21by9">
+                <iframe
+                  allowFullScreen
+                  frameBorder="0"
+                  src="https://embed.waze.com/iframe?zoom=14&lat=59.438698&lon=24.729117&ct=livemap"
+                />
+              </div>
+            </section>
 
-              <section>
-                <div className="row section">
-                  <div className="col-lg-12 text-center">
-                    <div className="title-box">
-                      <p className="title-alt">Twitter</p>
-                      <h3 className="fadeIn animated wow" data-wow-delay=".1s">
-                        Säutsud kaardil
-                      </h3>
-                      <div className="border" />
-                    </div>
+            <section>
+              <div className="row section">
+                <div className="col-lg-12 text-center">
+                  <div className="title-box">
+                    <p className="title-alt">Twitter</p>
+                    <h3 className="fadeIn animated wow" data-wow-delay=".1s">
+                      Säutsud kaardil
+                    </h3>
+                    <div className="border" />
                   </div>
                 </div>
-                <div className="embed-responsive embed-responsive-21by9">
-                  <iframe
-                    allowFullScreen
-                    frameBorder="0"
-                    src="https://twimap.com/?embed=true&location=59.438698%2C24.729117&zoom=15&distance=500&count=100&min_timestamp=0&max_timestamp=0"
-                  />
-                </div>
-              </section>
-            </div>
-          )}
+              </div>
+              <div className="embed-responsive embed-responsive-21by9">
+                <iframe
+                  allowFullScreen
+                  frameBorder="0"
+                  src="https://twimap.com/?embed=true&location=59.438698%2C24.729117&zoom=15&distance=500&count=100&min_timestamp=0&max_timestamp=0"
+                />
+              </div>
+            </section>
+          </div>
+        )}
 
         <div className="section" />
 
