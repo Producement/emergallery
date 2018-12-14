@@ -79,17 +79,21 @@ class Gallery extends Component<any, any> {
     this.goBack = this.goBack.bind(this);
   }
 
-  private dummyImage = {
-    src: 'https://www.echelonchicago.com/wp-content/uploads/2014/06/dummy.gif',
-    width: 500,
-    height: 271
-  };
+  private dummyImage(i: number) {
+    return {
+      key: i,
+      src:
+        'https://www.echelonchicago.com/wp-content/uploads/2014/06/dummy.gif',
+      width: 500,
+      height: 271
+    };
+  }
 
   private dummyImages = [
-    this.dummyImage,
-    this.dummyImage,
-    this.dummyImage,
-    this.dummyImage
+    this.dummyImage(1),
+    this.dummyImage(2),
+    this.dummyImage(3),
+    this.dummyImage(4)
   ];
 
   componentDidMount() {
