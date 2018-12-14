@@ -5,7 +5,7 @@ import { withFirebase } from '../Firebase';
 import Lightbox from 'react-images';
 import { ReceivingPeer } from '../Video';
 import './Gallery.css';
-import man from './man01.png';
+import man from './tonu.png';
 import bull from '../../bull.svg';
 import { HashLink } from 'react-router-hash-link';
 
@@ -44,10 +44,9 @@ class SubGallery extends Component<any, any> {
   render() {
     return (
       <section id="pildid">
-        <div className="row section">
-          <div className="col-lg-12 text-center">
-            <div className="title-box">
-              <p className="title-alt">Pildid</p>
+        <div className="row">
+          <div className="col-lg-12">
+            <div className="title-box mb-3">
               <h3 className="fadeIn animated wow" data-wow-delay=".1s">
                 Üleslaetud pildid
               </h3>
@@ -200,7 +199,10 @@ class Gallery extends Component<any, any> {
                 <div className="row user-detail">
                   <div className="col-lg-12 col-sm-12 col-12">
                     <img src={man} className="rounded-circle img-thumbnail" />
-                    <h5>{this.getPhone()}</h5>
+                    <h5>
+                      <i className="fa fa-phone" aria-hidden="true" />{' '}
+                      {this.getPhone()}
+                    </h5>
                     <p>
                       <i className="fa fa-map-marker" aria-hidden="true" />{' '}
                       {this.getAddress() || 'Ei ole saadaval'}
@@ -216,7 +218,6 @@ class Gallery extends Component<any, any> {
                     </p>
                   </div>
                 </div>
-                <div className="user-social-detail" />
               </div>
 
               <div className="profile-usermenu">
@@ -257,10 +258,9 @@ class Gallery extends Component<any, any> {
                 )}
 
                 <section id="video">
-                  <div className="row section">
-                    <div className="col-lg-12 text-center">
-                      <div className="title-box">
-                        <p className="title-alt">Video</p>
+                  <div className="row">
+                    <div className="col-lg-12">
+                      <div className="title-box mb-3 mt-5">
                         <h3
                           className="fadeIn animated wow"
                           data-wow-delay=".1s"
@@ -277,10 +277,9 @@ class Gallery extends Component<any, any> {
                 {this.getLatitude() && this.getLongitude() && (
                   <div>
                     <section id="waze">
-                      <div className="row section">
-                        <div className="col-lg-12 text-center">
-                          <div className="title-box">
-                            <p className="title-alt">Waze</p>
+                      <div className="row">
+                        <div className="col-lg-12">
+                          <div className="title-box mb-3 mt-5">
                             <h3
                               className="fadeIn animated wow"
                               data-wow-delay=".1s"
@@ -301,10 +300,9 @@ class Gallery extends Component<any, any> {
                     </section>
 
                     <section id="twitter">
-                      <div className="row section">
-                        <div className="col-lg-12 text-center">
-                          <div className="title-box">
-                            <p className="title-alt">Twitter</p>
+                      <div className="row">
+                        <div className="col-lg-12">
+                          <div className="title-box mb-3 mt-5">
                             <h3
                               className="fadeIn animated wow"
                               data-wow-delay=".1s"
@@ -325,8 +323,6 @@ class Gallery extends Component<any, any> {
                     </section>
                   </div>
                 )}
-
-                <div className="section" />
               </div>
             </div>
           </div>
