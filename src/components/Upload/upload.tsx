@@ -43,27 +43,48 @@ class Upload extends React.Component<any, any> {
 
   render() {
     return (
-      <div className="App">
-        <div className="row">
-          <div className="col-md-12 text-center">
-            <h1>Häirekeskuse Pildipank</h1>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-md-12 text-center">
-            <label>
-              <input
-                style={{ display: 'none' }}
-                type="file"
-                onChange={this.handleSelectedFile}
-              />
-              <span className="btn btn-info">LISA PILT</span>
-            </label>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-md-12 text-center">
-            <InitiatorPeer />
+      <div className="login-page">
+        <div className="container pt-5">
+          <div className="row">
+            <div className="col-lg-10 offset-lg-1 col-sm-12 offset-sm-0 text-center">
+              <div className="col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-12">
+                <div className="row mt-4 pt-4 pb-4 justify-content-center login-form">
+                  <div className="col-lg-9">
+                    <h3 className="mt-2 mb-4 pb-2">
+                      <span>Häirekeskuse Pildipank</span>
+                    </h3>
+                    <form>
+                      <div className="form-group">
+                        <label style={{ width: '100%' }}>
+                          <input
+                            style={{ display: 'none' }}
+                            type="file"
+                            onChange={this.handleSelectedFile}
+                          />
+                          <span className="btn btn-primary btn-block btn-lg">
+                            LISA PILT
+                          </span>
+                        </label>
+                      </div>
+                    </form>
+                    <div className="login-form__break mt-3 mb-3">
+                      <span className="ml-2 mr-2">
+                        <span>või</span>
+                      </span>
+                    </div>
+                    <div>
+                      <InitiatorPeer />
+                    </div>
+                  </div>
+                  <div className="col-lg-9 mt-4">
+                    <span>
+                      Pildi ning videomaterjal on vajalik hädaolukorrale
+                      operatiivseks reageerimiseks.
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
