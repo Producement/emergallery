@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { withFirebase } from '../Firebase';
 import uuid from 'uuid/v4';
 import './home.css';
+import bull from '../../bull.svg';
 
 class Index extends React.Component<any, any> {
   constructor(props) {
@@ -85,6 +86,13 @@ class Index extends React.Component<any, any> {
             </div>
           </div>
         </div>
+        <a href="https://producement.com" className="text-center">
+          <img
+            className="navbar-brand logo floating"
+            src={bull}
+            alt="Producement.com"
+          />
+        </a>
       </section>
     );
   }
