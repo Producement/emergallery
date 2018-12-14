@@ -294,7 +294,7 @@ class Gallery extends Component<any, any> {
                         <iframe
                           allowFullScreen
                           frameBorder="0"
-                          src="https://embed.waze.com/iframe?zoom=14&lat=59.438698&lon=24.729117&ct=livemap"
+                          src="https://embed.waze.com/iframe?zoom=15&lat=59.438698&lon=24.729117&ct=livemap"
                         />
                       </div>
                     </section>
