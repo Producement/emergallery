@@ -127,12 +127,14 @@ class ReceivingPeerComponent extends React.Component<any, any> {
             }}
           />
           {this.state.playing && (
-            <button
-              className="btn btn-primary btn-block btn-lg"
-              onClick={this.screenshot}
-            >
-              Tee pilt
-            </button>
+            <div className="row justify-content-center">
+              <button
+                className="btn btn-primary btn-lg"
+                onClick={this.screenshot}
+              >
+                Tee pilt
+              </button>
+            </div>
           )}
         </div>
       </div>
